@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+	<title>CLICK!</title>
+	
+			<style type="text/css">
+				
+
+
+				
+
+
+				
+			</style>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+			<body><h4 id="coins">Coins:  25</h4>
+			<h6 id="coinsPS">Coins Per Second:  0</h6>
+                    <span id="nextUpgrade">Next Upgrade:  50</span>
+<br>
+
+
+					
+					
+					<br>
+
+					<span id="nextAdvancedUpgrade">
+						
+					Next Advanced Upgrade:	1000
+
+					</span>
+
+					<br>
+					<br>
+
+					<span id="nextBankUpgrade">
+						
+					Next Bank:	1MIL
+
+					</span>
+
+					<br>
+					<br>
+
+					<span id="worldwideUpgrade">
+						
+					Next Service:	100000000000000;
+
+					</span>
+
+					<br>
+
+			<button button="" type="button" onclick="gainCoin()">Coin</button>
+            
+            
+    
+
+
+
+
+							<script type="text/javascript">
+		
+	var coins = 0;
+	var coinsPS = 0;
+	var coinsPC = 1;
+	var costPS = 50;
+	var costadvanced = 1000;
+	var bankUpgrade = 1000000;
+	var worldwide = 100000000000000;
+
+function codesCHECK () {
+
+	if (document.getElementById('codes').value == 'LOVELY') {
+
+		document.getElementById(coins).value + '10000'
+
+	}
+
+}
+
+function USELESS() {
+
+	
+	
+}
+
+
+function gainCoin() {
+	coins += coinsPC;
+}
+
+setInterval(function renderCoins() {
+	document.getElementById("coins").innerHTML = "Coins:" + "  " + coins;
+})
+
+setInterval(function renderCoinsPS() {
+	document.getElementById('coinsPS').innerHTML = "Coins Per Second:" + "  " + coinsPS;
+})
+
+function gainCoinsPS() {
+	if (coins >= costPS) {
+		coinsPS += 10;
+		coins -= costPS;
+		costPS += 10;
+
+	} 
+	else{
+	 alert("Get More Coins.");
+	}
+}
+
+setInterval(function USELESS(){
+
+document.getElementById('worldwideUpgrade').innerHTML = "Next Service:" + "	 " + worldwide;
+
+}, 100)
+
+setInterval(function USELESS(){
+
+document.getElementById('nextBankUpgrade').innerHTML = "Next Bank:" + "	 " + bankUpgrade;
+
+}, 100)
+
+
+setInterval(function USELESS(){
+
+document.getElementById('nextAdvancedUpgrade').innerHTML = "Next Advanced Upgrade:" + "	 " + costadvanced;
+
+}, 100)
+
+setInterval(function USELESS(){
+	document.getElementById('nextUpgrade').innerHTML = "Next Upgrade:" + "  " + costPS;
+}, 100)
+
+setInterval(function gainCoinsPS() {
+	coins += coinsPS;
+	document.getElementById('nextUpgrade').innerHTML = "Next Upgrade:" + "  " + costPS;
+		
+}, 1000)
+
+
+function advancedupgrade(){
+	if (coins >= costadvanced){
+		coinsPS += 250;
+		coins -= costadvanced;
+		costadvanced += 1000;
+
+	}
+	else{
+		alert("Get More Coins.")
+	}
+
+	
+
+}
+
+function worldwid() {
+	if (coins >= worldwide){
+		coinsPS += 250000000;
+		coins -= worldwide;
+		worldwide += 1000000000000;
+
+	}
+	else{
+		alert("Get More Coins.")
+	}
+	
+
+}
+
+setInterval(function worldwid(){
+	document.getElementById("coinsPS").innerHTML = "Coins Per Second:" + "  " + coinsPS;
+	
+}, 1000)
+
+function bankupgrade() {
+	if (coins >= bankUpgrade){
+		coinsPS += 25000;
+		coins -= bankUpgrade;
+		bankUpgrade += 1000000;
+
+	}
+	else{
+		alert("Get More Coins.")
+	}
+	
+
+}
+
+setInterval(function bankupgrade(){
+	document.getElementById("coinsPS").innerHTML = "Coins Per Second:" + "  " + coinsPS;
+	
+}, 1000)
+
+setInterval(function advancedupgrade(){
+	document.getElementById("coinsPS").innerHTML = "Coins Per Second:" + "  " + coinsPS;
+	
+}, 1000)
+
+
+	
+
+			</script>
+			
+			<input type="button" value="GAIN CPS" onclick="gainCoinsPS()">
+            <input type="button" value="ADVANCED UPGRADE" onclick="advancedupgrade()">
+            
+			<input type="button" value="BANK" onclick="bankupgrade()">
+			<br>
+			<input type="button" value="BUY A WORLD-WIDE TRADING SERVICE" onclick="worldwid()">
+ 
+
+<br>
+<br>
+<h3>Developed By Toby Bridle</h3>
+<h3>And Ben Turner</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="right">BETA VERSION: 0.0.5</p>
+
+</body></html>

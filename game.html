@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HITMAN SIMULATOR</title>
+</head>
+<center style="border-style: solid; border-width: 7.5px; margin-right: 50px; margin-left: 350px; padding-left: 50px; padding-right: 50px; width: 500px">
+<h4 id="kills"></h4>
+<h6 id="killsPS"></h6>
+<h6 id="lvl"></h6>
+<h6 id="nxtHitman"></h6>
+<h6 id="nxtGunTwo"></h6>
+<h6 id="nxtBetterContracts"></h6>
+<h6 id="nxtHitmanUpgrade"></h6>
+<h6 id="nxtBarracks"></h6>
+<h6 id="nxtTrainingCamp"></h6>
+<h6 id="nxtTrainingCampTrooper"></h6>
+<h6 id="nxtBarret"></h6>
+</center>
+
+
+<body id="body">
+	<script type="text/javascript">
+		
+var kills = 250;
+var killsPS = 0;
+var killsPC = 1;
+var lvl = 1;
+var costPS = 20;
+var guntwoCost = 250;
+var betterContractsCost = 1000;
+var hitmanUpgradeCost = 10000;
+var burnersoftArray = ['161122104'];
+var barracksCost = 100000;
+var barret50CalCost = 100000;
+var custContractLvlCost = 1000000;
+
+
+function gainKill() {
+
+	kills += killsPC;
+
+
+}
+
+function buyHitman() {
+	if (kills >= costPS) {
+
+		killsPS += 2;
+		kills -= costPS;
+		costPS += 40;
+		lvl += 0.5
+	} 
+
+
+} 
+
+setInterval(function renderNxtHitman() {
+	document.getElementById('nxtHitman').innerHTML = "Next Hitman:" + "	" + costPS;
+
+    
+})
+
+console.log('STOP!')
+	console.log('PASTING TEXT HERE COULD RUIN YOUR PROGRESS!')
+
+setInterval(function gainKillsPS() {
+	kills += killsPS;
+	
+		
+}, 1000)
+
+setInterval(function renderKillsPS() {
+	document.getElementById('killsPS').innerHTML = "Kills Per Second:" + "	" + killsPS;
+})
+
+function guntwo() {
+
+
+
+if (document.getElementById('gun2').value == "LOCKED") {
+	alert('Not Unlocked')
+}
+
+if (document.getElementById('gun2').value == "M1911" && kills >= guntwoCost) {
+	killsPC += 4;
+	kills -= guntwoCost;
+	guntwoCost += 100;
+	lvl += 2;
+
+}
+
+}
+
+function betterContracts() {
+
+	if (document.getElementById('betterContracts').value == "LOCKED") {
+		alert('Not Unlocked')
+	}
+
+	if(document.getElementById('betterContracts').value == "Better Contracts" && kills >= betterContractsCost) {
+		killsPC += 100;
+		kills -= betterContractsCost;
+		betterContractsCost += 1000;
+		lvl += 8;
+	}
+
+}
+
+function barracks() {
+
+	if (document.getElementById('barracks').value == "LOCKED") {
+		alert('Not Unlocked')
+	}
+
+	if (document.getElementById('barracks').value == "Hitman Barracks" && kills >= barracksCost) {
+		killsPS += 2000;
+		kills -= barracksCost;
+		barracksCost += 100000;
+		lvl += 200;
+	}
+
+}
+
+
+
+
+
+
+
+function hitmanUpgrade() {
+
+	if (document.getElementById('hitmanUpgrade').value == "LOCKED") {
+		alert('Not Unlocked')
+	}
+
+	if (document.getElementById('hitmanUpgrade').value == "Hitman Upgrader" && kills >= hitmanUpgradeCost) {
+		killsPS += 500;
+		kills -= hitmanUpgradeCost;
+		hitmanUpgradeCost += 10000;
+		lvl += 50
+	}
+
+}
+
+function custContract() {
+	if (document.getElementById('custContractSubmit').value == "LOCKED") {
+		alert('Not Unlocked')
+	}
+
+	if (document.getElementById('custContractSubmit').value == "Submit Contract" && lvl >= custContractLvlCost) {
+		killsPS += 10000;
+		lvl -= custContractLvlCost;
+		custContractLvlCost += 1000000;
+		kills += 500000;
+	}
+}
+
+function barret50Cal() {
+	if (document.getElementById('barret50Cal').value == "LOCKED") {
+		alert('Not Unlocked')
+	}
+
+	if (document.getElementById('barret50Cal').value == "Buy Barret 50 Cal" && kills >= barret50CalCost) {
+		killsPS += 50000;
+		kills -= barret50CalCost;
+		barret50CalCost += 100000;
+	}
+}
+
+setInterval(function barret50CalCheck() {
+	if (lvl >= 10000) {
+		document.getElementById('barret50Cal').value = "Buy Barret 50 Cal"; 
+	}
+	document.getElementById('nxtBarret').innerHTML = "Next Barret 50 Cal:" + "	" + barret50CalCost;
+})
+
+setInterval(function custContractCheck() {
+	if (lvl >= 1000000) {
+		document.getElementById('custContractSubmit').value = "Submit Contract";
+	}
+	document.getElementById('nxtCustContract').innerHTML = "Next Custom Contract:" + "	" + custContractLvlCost;
+})
+
+setInterval(function barracksCheck() {
+	if (lvl >= 200) {
+		document.getElementById('barracks').value = "Hitman Barracks";
+	}
+
+	document.getElementById('nxtBarracks').innerHTML = "Next Hitman Barracks:" + "	" + barracksCost;
+})
+
+function credits () {
+
+document.getElementById('body').innerHTML = "<font size='40'>BURNERSOFT</font>" + "<br>" + "<font size='20'>BEN TURNER & TOBY BRIDLE....</font>" + "<br>" + "<font size='20'>ALSO THANKING, DONALD TRUMP & THE HOMELESS MAN...."
+
+}
+
+function modCheck() {
+
+	if (document.getElementById('modsBox').value == 'levelplayingfield') {
+		kills = 0;
+		killsPS = 0;
+		lvl = 0;
+		killsPC = 0;
+	}	
+
+	if (document.getElementById('modsBox').value == 'streetman') {
+		killsPS -= 10000000000000;
+		kills -= 10000000000000;
+	}
+
+	if (document.getElementById('modsBox').value == 'averyrichman') {
+		kills = 100000000000000000000000000000000000000;
+	}
+
+	if (document.getElementById('modsBox').value == 'trumpindustries') {
+		killsPS = 1000000000000000000000000000000000000;
+	}
+
+	if (document.getElementById('modsBox').value == 'greengoingup') {
+		lvl = 10000000000000000000000000000000000000000;
+	}
+
+}
+
+setInterval(function hitmanUpgradeCheck() {
+	if (lvl >= 35) {
+		document.getElementById('hitmanUpgrade').value = "Hitman Upgrader";
+	}
+
+	document.getElementById('nxtHitmanUpgrade').innerHTML = "Next Hitman Upgrader" + "	" + hitmanUpgradeCost;
+})
+
+setInterval(function betterContractsCheck() {
+
+	if (lvl >= 15) {
+		document.getElementById('betterContracts').value = "Better Contracts";
+		
+	}
+
+	document.getElementById('nxtBetterContracts').innerHTML = "Next Better Contracts:" + "	" + betterContractsCost;
+
+})
+
+setInterval(function guntwoCheck() {
+
+	if (lvl >= 5) {
+	document.getElementById('gun2').value = "M1911";
+	document.getElementById('nxtGunTwo').innerHTML = "Next M1911:" + "	" + guntwoCost;
+}
+
+})
+
+setInterval(function renderKills(){
+	document.getElementById('kills').innerHTML = "Kills:" + "	" + kills;
+})
+
+setInterval(function renderLVL(){
+	document.getElementById('lvl').innerHTML = "Level:" + "	" + lvl;
+})
+
+	</script>
+	<input type="button" id="creditsBURNERSOFT" value="CREDITS" onclick="credits()">
+	<input type="text" id="modsBox" placeholder="ENTER CODE:" maxlength="20">
+	<input type="button" value="SUBMIT" onclick="modCheck()">
+	<p align="left" style="background-color: black; 
+	border-style: solid; border-width: 7.5px; margin-right: 50px; padding-right: 55px; width: 33px">
+	<input type="button" value="Buy Contract" onclick="gainKill()">
+	  <input type="button" id="hitman" value="HITMAN" onclick="buyHitman()">
+
+		<input type="button" id="gun2" value="LOCKED" onclick="guntwo()" ></input>
+		<br>
+		<input type="button" id="betterContracts" value="LOCKED" onclick="betterContracts()">
+		<input type="button" id="hitmanUpgrade" value="LOCKED" onclick="hitmanUpgrade()">
+		<br>
+		<input type="button" id="barracks" value="LOCKED" onclick="barracks()">
+		<input type="button" onclick="barret50Cal()" id="barret50Cal" value="LOCKED">
+		<input type="text" placeholder="Custom Contract" id="custContract"><input type="button" id="custContractSubmit" onclick="custContract()" value="LOCKED">
+		
+</p>
+
+
+
+		
+</body>
+</html>
